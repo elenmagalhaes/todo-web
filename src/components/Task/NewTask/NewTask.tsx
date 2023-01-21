@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from 'uuid'
 import { PlusCircle } from 'phosphor-react'
+import { useState, ChangeEvent } from 'react'
 import { Task } from '../Task.types'
-import { useState, ChangeEvent, FormEvent } from 'react'
 
 import './NewTask.scss'
 
@@ -12,13 +12,14 @@ interface NewTaskProps {
 export function NewTask({ onCreateTask }: NewTaskProps) {
   const [newTask, setNewTask] = useState<string>('')
 
-  const handleCreateTask = (event: FormEvent) => {
+  const handleCreateTask = (event: any) => {
     event.preventDefault()
     onCreateTask({
       id: uuidv4(),
       text: newTask,
       isCompleted: false,
     })
+    event.target.task.value = ''
   }
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -29,7 +30,7 @@ export function NewTask({ onCreateTask }: NewTaskProps) {
     <form onSubmit={handleCreateTask} className="new-task-container">
       <input
         placeholder="Adicone uma nova tarefa"
-        name="tarefa"
+        name="task"
         type="text"
         onChange={handleInputChange}
       />
