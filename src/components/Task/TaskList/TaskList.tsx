@@ -1,3 +1,4 @@
+import { EmptyState } from '../../EmptyState/EmptyState'
 import { TaskItem } from '../TaskItem/TaskItem'
 import './TaskList.scss'
 
@@ -17,6 +18,7 @@ export function TaskList() {
 
       <div className="task-list">
         <TaskItem />
+        {/* <EmptyState /> */}
       </div>
     </div>
   )

@@ -1,0 +1,25 @@
+.empty-state-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 4rem;
+    padding: 4rem 2rem;
+
+    img:first-child {
+        margin-bottom: 1rem;
+    }
+
+    p {
+        color: var(--gray-300);
+        line-height: 1.6;
+    }
+
+    .title {
+        font-weight: 700;
+    }
+
+    .description {
+        line-height: 1.6;
+    }
+
+}
