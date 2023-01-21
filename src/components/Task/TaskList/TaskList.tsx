@@ -1,3 +1,4 @@
+import { TaskItem } from '../TaskItem/TaskItem'
 import './TaskList.scss'
 
 export function TaskList() {
@@ -14,7 +15,9 @@ export function TaskList() {
         </div>
       </header>
 
-      <div></div>
+      <div className="task-list">
+        <TaskItem />
+      </div>
     </div>
   )
 }
