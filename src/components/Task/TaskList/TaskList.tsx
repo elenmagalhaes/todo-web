@@ -7,37 +7,19 @@ import './TaskList.scss'
 
 interface TaskListProps {
   tasks: Task[]
+  onCheckedTask: (task: Task) => void
+  onDeleteTask: (task: Task) => void
 }
 
-export function TaskList({ tasks }: TaskListProps) {
-  const [taskList, setTaskList] = useState<Task[]>(tasks)
-
+export function TaskList({
+  tasks,
+  onCheckedTask,
+  onDeleteTask,
+}: TaskListProps) {
   const filterDoneTasks = () => {
-    const tasksCompleted = taskList.filter((task) => task.isCompleted).length
-    return `${tasksCompleted} de ${taskList.length}`
+    const tasksCompleted = tasks.filter((task) => task.isCompleted).length
+    return `${tasksCompleted} de ${tasks.length}`
   }
-
-  const updateTask = (task: Task) => {
-    const newList = taskList.map((item) => {
-      if (item.id === task.id) {
-        const updatedTask = {
-          ...item,
-          isCompleted: task.isCompleted,
-        }
-        return updatedTask
-      }
-
-      return item
-    })
-
-    setTaskList(newList)
-  }
-
-  useEffect(() => {
-    if (tasks.length !== 0) {
-      setTaskList(tasks)
-    }
-  }, [tasks])
 
   return (
     <div className="task-list-container">
@@ -56,7 +38,12 @@ export function TaskList({ tasks }: TaskListProps) {
         {tasks.length > 0 &&
           tasks.map((task) => {
             return (
-              <TaskItem key={task.id} task={task} onCheckedTask={updateTask} />
+              <TaskItem
+                key={task.id}
+                task={task}
+                onCheckedTask={onCheckedTask}
+                onDeleteTask={onDeleteTask}
+              />
             )
           })}
         {tasks.length === 0 && <EmptyState />}

@@ -22,6 +22,7 @@
         color: var(--white);
         font-weight: 700;
         font-size: 0.875rem;
+        transition: background-color 0.2s;
         cursor: pointer;
 
         .btn-content {
@@ -29,6 +30,15 @@
             align-items: center;
             justify-content: space-evenly;
         }
+    }
+
+    button[type='submit']:not(:disabled):hover {
+        background: var(--pink-900);
+    }
+
+    button[type='submit']:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
     }
 
 }
