@@ -1,0 +1,44 @@
+.task-list-container {
+    margin-top: 4rem;
+
+    .header-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 700;
+
+        .created-tasks {
+            
+            span:first-child {
+                color: var(--pink-500);
+                font-size: 0.875rem;
+            }
+
+            .counter {
+                font-size: 0.75rem;
+                color: var(--gray-200);
+                background: var(--gray-400);
+                border-radius: 8px;
+                padding: 0.125rem 0.5rem;
+                margin-left: 0.5rem;
+            }
+        }
+
+        .completed-tasks {
+            
+            span:first-child {
+                color: var(--white);
+                font-size: 0.875rem;
+            }
+
+            .progress {
+                font-size: 0.75rem;
+                color: var(--gray-200);
+                background: var(--gray-400);
+                border-radius: 8px;
+                padding: 0.125rem 0.5rem;
+                margin-left: 0.5rem;
+            }
+        }
+    }
+}
