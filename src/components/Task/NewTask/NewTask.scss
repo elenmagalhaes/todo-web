@@ -1,0 +1,34 @@
+.new-task-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-top: -6rem;
+    
+    input {
+        width: 38rem;
+        padding: 1rem;
+        background: var(--gray-500);
+        color: var(--gray-100);
+        border: 0;
+        border-radius: 8px;
+    }
+
+    button[type='submit'] {
+        width: 5.625rem;
+        padding: 1rem;
+        border-radius: 8px;
+        border: 0;
+        background: var(--pink-500);
+        color: var(--white);
+        font-weight: 700;
+        font-size: 0.875rem;
+        cursor: pointer;
+
+        .btn-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+    }
+
+}
