@@ -1,29 +1,42 @@
 import { Trash, Circle, CheckCircle } from 'phosphor-react'
+import { useState } from 'react'
+import { Task } from '../Task.types'
+
 import './TaskItem.scss'
 
-export function TaskItem() {
+interface TaskItemProps {
+  task: Task
+  onCheckedTask: (task: Task) => void
+}
+
+export function TaskItem({ task, onCheckedTask }: TaskItemProps) {
+  const [taskItem, setTaskItem] = useState<Task>(task)
+
+  const handleCheckTask = () => {
+    const newTask = {
+      ...task,
+      isCompleted: !taskItem.isCompleted,
+    }
+
+    setTaskItem(newTask)
+    onCheckedTask(newTask)
+  }
+
   return (
     <>
       <div className="task-item">
         <div className="task-content">
-          <Circle size={24} color="#FFFFFF" />
-          <p className="task-text">
-            Integer urna interdum massa libero auctor neque turpis turpis
-            semper. Duis vel sed fames integer.
-          </p>
-          <button title="deletar tarefa">
-            <Trash size={24} />
-          </button>
-        </div>
-      </div>
-
-      <div className="task-item">
-        <div className="task-content">
-          <CheckCircle className="checked" size={24} color="#e75a7a" />
-          <p className="task-text">
-            Integer urna interdum massa libero auctor neque turpis turpis
-            semper. Duis vel sed fames integer.
-          </p>
+          {taskItem.isCompleted ? (
+            <CheckCircle
+              onClick={handleCheckTask}
+              className="checked"
+              size={24}
+              color="#e75a7a"
+            />
+          ) : (
+            <Circle onClick={handleCheckTask} size={24} color="#FFFFFF" />
+          )}
+          <p className="task-text">{taskItem.text}</p>
           <button title="deletar tarefa">
             <Trash size={24} />
           </button>

@@ -1,14 +1,24 @@
+import { v4 as uuidv4 } from 'uuid'
 import { PlusCircle } from 'phosphor-react'
+import { Task } from '../Task.types'
 import { useState, ChangeEvent, FormEvent } from 'react'
+
 import './NewTask.scss'
 
-export function NewTask() {
-  const [tasks, setTasks] = useState<string[]>([])
+interface NewTaskProps {
+  onCreateTask: (task: Task) => void
+}
+
+export function NewTask({ onCreateTask }: NewTaskProps) {
   const [newTask, setNewTask] = useState<string>('')
 
   const handleCreateTask = (event: FormEvent) => {
     event.preventDefault()
-    setTasks([...tasks, newTask])
+    onCreateTask({
+      id: uuidv4(),
+      text: newTask,
+      isCompleted: false,
+    })
   }
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
