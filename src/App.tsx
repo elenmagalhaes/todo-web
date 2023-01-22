@@ -1,16 +1,18 @@
 import { Header } from './components/Header/Header'
 import { NewTask } from './components/Task/NewTask/NewTask'
 import { TaskList } from './components/Task/TaskList/TaskList'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Task } from './components/Task/Task.types'
 
 import './App.scss'
 
 function App() {
   const [tasks, setTasks] = useState<Task[]>([])
+  const LOCAL_STORAGE_KEY = '@todoList::tasks'
 
   const createTask = (task: Task) => {
     setTasks([...tasks, task])
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify([...tasks, task]))
   }
 
   const updateTask = (task: Task) => {
@@ -36,6 +38,18 @@ function App() {
 
     setTasks(tasksUpdated)
   }
+
+  const loadTasks = () => {
+    const storagedTasks = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (storagedTasks) {
+      setTasks(JSON.parse(storagedTasks))
+    }
+  }
+
+  useEffect(() => {
+    loadTasks()
+  }, [])
 
   return (
     <>
