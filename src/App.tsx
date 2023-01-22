@@ -37,6 +37,7 @@ function App() {
     })
 
     setTasks(tasksUpdated)
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(tasksUpdated))
   }
 
   const loadTasks = () => {
