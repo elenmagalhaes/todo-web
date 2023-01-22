@@ -7,8 +7,8 @@ Desafio proposto pela Rocketseat
 <p align="center">
   <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-proximos-passos">Próximos passos</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-produção">Produção</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-próximos-passos">Próximos passos</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#memo-licença">Licença</a>
 </p>
 
@@ -44,11 +44,11 @@ A aplicação permite ao usuário o cadastro, remoção e conclusão de tarefas.
 
 ## ✏ Próximos passos
 
-- [ ] Armazenar as tarefas em LocalStorage.
+- [ ] Revalidar nomenclatura utilizada para o nome das classes da aplicação.
 
-## 🔖 Layout
+## 🔖 Produção
 
-A aplicação ainda não está hospedada em produção, mas é possível visualizá-la em ambiente local, clonando o projeto e executando os seguintes comandos.
+Para visualizar o layout da aplicação e interagir com o sistema, [acesse aqui](https://todo-list-app-hazel.vercel.app).
 
 ```
 yarn / npm
